@@ -114,6 +114,7 @@ OBJ =	$(PLATFORM_C_SRC:.c=.o) $(PLATFORM_CXX_SRC:.cpp=.o) \
 PUBHDR = \
 	pcap.h \
 	pcap-bpf.h \
+	pcap-int.h \
 	pcap-namedb.h \
 	pcap/bpf.h \
 	pcap/bluetooth.h \
