@@ -2223,7 +2223,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "SunOS" AND CMAKE_SYSTEM_VERSION MATCHES "5[.]
     #
     add_definitions(-D_TS_ERRNO)
 
-    if(CMAKE_SYSTEM_VERSION STREQUAL "5.12")
+    if(EXISTS /usr/share/man/man7/attributes.7)
     else()
         #
         # Use System V conventions for man pages.

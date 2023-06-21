@@ -2165,12 +2165,7 @@ solaris*)
 	#
 	V_CCOPT="$V_CCOPT -D_TS_ERRNO"
 
-	case "`uname -r`" in
-
-	5.12)
-		;;
-
-	*)
+	if ! test -f /usr/share/man/man7/attributes.7 ; then
 		#
 		# Use System V conventions for man pages.
 		#
@@ -2178,8 +2173,7 @@ solaris*)
 		MAN_FILE_FORMATS=4
 		MAN_MISC_INFO=5
 		MAN_DEVICES=7D
-	esac
-	;;
+	fi
 esac
 
 AC_ARG_ENABLE(shared,
