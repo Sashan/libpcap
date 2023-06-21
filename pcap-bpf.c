@@ -3000,7 +3000,17 @@ pcap_platform_finddevs(pcap_if_list_t *devlistp, char *errbuf)
 	if (pcap_findalldevs_interfaces(devlistp, errbuf, check_bpf_bindable,
 	    get_if_flags) == -1)
 		return (-1);	/* failure */
-
+ 
+#ifdef DLT_IPNET 
+	/*
+	 * Adding the "any" pseudo-device
+	 */
+	const char any_descr[] = "Pseudo-device that captures on all interfaces";
+	if (add_dev(devlistp, "any", IFF_UP|IFF_RUNNING,
+	    any_descr, errbuf) == NULL)
+		return (-1);
+#endif
+ 
 #if defined(__FreeBSD__) && defined(SIOCIFCREATE2)
 	if (finddevs_usb(devlistp, errbuf) == -1)
 		return (-1);
