@@ -517,6 +517,8 @@ void	pcap_breakloop_common(pcap_t *);
  *
  * "add_dev()" adds an entry to a pcap_if_list_t.
  *
+ * "pcap_add_any_dev()" adds an entry for the "any" device to a pcap_if_list_t.
+ *
  * "find_dev()" tries to find a device, by name, in a pcap_if_list_t.
  *
  * "find_or_add_dev()" checks whether a device is already in a pcap_if_list_t
@@ -535,6 +537,7 @@ pcap_if_t *find_or_add_dev(pcap_if_list_t *, const char *, bpf_u_int32,
 pcap_if_t *find_dev(pcap_if_list_t *, const char *);
 pcap_if_t *add_dev(pcap_if_list_t *, const char *, bpf_u_int32, const char *,
 	    char *);
+pcap_if_t *pcap_add_any_dev(pcap_if_list_t *, char *);
 int	add_addr_to_dev(pcap_if_t *, struct sockaddr *, size_t,
 	    struct sockaddr *, size_t, struct sockaddr *, size_t,
 	    struct sockaddr *dstaddr, size_t, char *errbuf);
